@@ -3,11 +3,13 @@ name: CI for Vanilla Notebooks
 on:
   push:
     branches:
+      - main
       - pm-143
     paths:
       - 'recipes/RAG/RAG_with_Langchain.ipynb'
   pull_request:
     branches:
+      - main
       - pm-143
     paths:
       - 'recipes/RAG/RAG_with_Langchain.ipynb'
