@@ -10,7 +10,7 @@ on:
     branches:
       - main
     paths:
-      - 'recipes/RAG/RAG_with_Langchain.ipynb
+      - 'recipes/RAG/RAG_with_Langchain.ipynb'
 
 jobs:
   test-vanilla-notebooks:
