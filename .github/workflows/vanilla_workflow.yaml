@@ -4,15 +4,15 @@ on:
   push:
     branches:
       - main
-      - pm-143
     paths:
       - 'recipes/RAG/RAG_with_Langchain.ipynb'
-  pull_request:
+  pull_request_target:
     branches:
       - main
-      - pm-143
-    paths:
-      - 'recipes/RAG/RAG_with_Langchain.ipynb'
+
+# Un comment after merge
+#    paths:
+#      - 'recipes/RAG/RAG_with_Langchain.ipynb'
 
 jobs:
   test-vanilla-notebooks:
