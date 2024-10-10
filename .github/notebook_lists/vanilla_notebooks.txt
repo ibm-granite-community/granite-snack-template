@@ -1,2 +1,3 @@
 recipes/RAG/RAG_with_Langchain.ipynb
+recipes/Guard-Rails/HAP.ipynb
 recipes/RAG/RAG_Evaluation_with_Ragas.ipynb
