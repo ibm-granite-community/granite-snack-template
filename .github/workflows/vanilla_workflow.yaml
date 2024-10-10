@@ -7,6 +7,7 @@ on:
       - pm-143
     paths:
       - 'recipes/RAG/RAG_with_Langchain.ipynb'
+      - recipes/Guard-Rails/HAP.ipynb
       - '.github/notebook_lists/vanilla_notebooks.txt'
   pull_request:
     branches:
@@ -15,6 +16,7 @@ on:
     paths:
       - '.github/workflows/vanilla_workflow.yaml'
       - 'recipes/RAG/RAG_with_Langchain.ipynb'
+      - recipes/Guard-Rails/HAP.ipynb
 
 jobs:
   test-vanilla-notebooks:
