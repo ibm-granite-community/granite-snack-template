@@ -8,7 +8,11 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/RAG/RAG_with_Langchain.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
-
+2. [RAG Evaluation with Ragas](/recipes/RAG/RAG_Evaluation_with_Ragas.ipynb)
+   <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/RAG/RAG_Evaluation_with_Ragas.ipynb">
+   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+   </a>
+   
 ## Contributing
 
 For information about contributing to this repo, code of conduct guidelines, etc., see the community [CONTRIBUTING][CG] and [Code of Conduct][CoC] guides.  All commits require DCO-signoff (discussed [here][CG-legal]) _and_ GPG or SSH signing (discussed [here][CG-signing]).  The GitHub recommended code security settings are enforced on this public repository (which include the signing requirement).
