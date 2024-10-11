@@ -1,2 +1,3 @@
+recipes/Summarize/Summarize.ipynb
 recipes/RAG/RAG_with_Langchain.ipynb
 recipes/Guard-Rails/HAP.ipynb
