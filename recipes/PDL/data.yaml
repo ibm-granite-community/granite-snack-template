@@ -1,0 +1,16 @@
+source_code: 
+  |
+  @SuppressWarnings("unchecked")
+  public static Map<String, String> deserializeOffsetMap(String lastSourceOffset) throws IOException {
+    Map<String, String> offsetMap;
+    if (lastSourceOffset == null || lastSourceOffset.isEmpty()) {    
+      offsetMap = new HashMap<>();  
+    } else {
+      offsetMap = JSON_MAPPER.readValue(lastSourceOffset, Map.class);  
+    }
+    return offsetMap;
+  }
+repo_info: 
+  repo: streamsets/datacollector
+  path: stagesupport/src/main/java/com/.../OffsetUtil.java
+  function_name: OffsetUtil.deserializeOffsetMap

@@ -1,0 +1,3 @@
+The function `deserializeOffsetMap` takes a string as input and returns a map. It first checks if the input string is null or empty. If it is, it creates a new empty map and returns it. Otherwise, it uses the Jackson library to parse the input string into a map and returns it.
+
+The `@SuppressWarnings("unchecked")` annotation is used to suppress the warning that the type of the parsed map is not checked. This is because the Jackson library is used to parse the input string into a map, but the specific type of the map is not known at compile time. Therefore, the warning is suppressed to avoid potential issues.
