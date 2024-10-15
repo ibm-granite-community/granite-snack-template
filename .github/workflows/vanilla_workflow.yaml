@@ -9,6 +9,7 @@ on:
       - recipes/Summarize/Summarize.ipynb
       - 'recipes/RAG/RAG_with_Langchain.ipynb'
       - recipes/Guard-Rails/HAP.ipynb
+      - recipes/PDL/Prompt_Declaration_Language.ipynb
       - '.github/notebook_lists/vanilla_notebooks.txt'
   pull_request:
     branches:
@@ -19,6 +20,7 @@ on:
       - recipes/Summarize/Summarize.ipynb
       - 'recipes/RAG/RAG_with_Langchain.ipynb'
       - recipes/Guard-Rails/HAP.ipynb
+      - recipes/PDL/Prompt_Declaration_Language.ipynb
 
 jobs:
   test-vanilla-notebooks:
