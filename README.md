@@ -20,12 +20,12 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <!-- <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/PDL/Prompt_Declaration_Language.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a> --> (Colab Support Coming Soon!!)
-1. [Agentic RAG](recipes/AI-Agents/Agentic_RAG.ipynb)
-   <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/AI-Agents/Agentic_RAG.ipynb">
+1. [Function Calling](recipes/Function-Calling/Function_Calling.ipynb)
+   <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Function-Calling/Function_Calling.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
-1. [Hate, Abuse, and Profanity (HAP) Scoring](recipes/Guard-Rails/HAP.ipynb)
-   <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Guard-Rails/HAP.ipynb">
+1. [Agentic RAG](recipes/AI-Agents/Agentic_RAG.ipynb)
+   <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/AI-Agents/Agentic_RAG.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
 1. [Granite Guardian 3.0](recipes/Granite_Guardian/Granite_Guardian_Quick_Start.ipynb)
