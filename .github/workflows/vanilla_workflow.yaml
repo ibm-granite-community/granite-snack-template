@@ -10,7 +10,7 @@ on:
       - 'recipes/RAG/RAG_with_Langchain.ipynb'
       - 'recipes/AI-Agents/Agentic_RAG.ipynb'
       - 'recipes/Entity-Extraction/entity_extraction.ipynb'
-      - 'recipes/Guard-Rails/HAP.ipynb'
+      - 'recipes/Granite_Guardian/HAP.ipynb'
       - '.github/notebook_lists/vanilla_notebooks.txt'
   pull_request:
     branches:
@@ -22,7 +22,7 @@ on:
       - 'recipes/RAG/RAG_with_Langchain.ipynb'
       - 'recipes/AI-Agents/Agentic_RAG.ipynb'
       - 'recipes/Entity-Extraction/entity_extraction.ipynb'
-      - 'recipes/Guard-Rails/HAP.ipynb'
+      - 'recipes/Granite_Guardian/HAP.ipynb'
 
 jobs:
   test-vanilla-notebooks:
