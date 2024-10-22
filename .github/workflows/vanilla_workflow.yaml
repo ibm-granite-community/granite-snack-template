@@ -11,6 +11,7 @@ on:
       - 'recipes/AI-Agents/Agentic_RAG.ipynb'
       - 'recipes/Entity-Extraction/entity_extraction.ipynb'
       - 'recipes/Granite_Guardian/HAP.ipynb'
+      - 'recipes/Function-Calling/Function_Calling.ipynb'
       - '.github/notebook_lists/vanilla_notebooks.txt'
   pull_request:
     branches:
@@ -22,6 +23,7 @@ on:
       - 'recipes/RAG/RAG_with_Langchain.ipynb'
       - 'recipes/AI-Agents/Agentic_RAG.ipynb'
       - 'recipes/Entity-Extraction/entity_extraction.ipynb'
+      - 'recipes/Function-Calling/Function_Calling.ipynb'
       - 'recipes/Granite_Guardian/HAP.ipynb'
 
 jobs:
