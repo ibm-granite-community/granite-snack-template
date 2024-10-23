@@ -6,6 +6,7 @@ on:
       - main
       - pm-143
     paths:
+      - 'recipes/Function-Calling/Function_Calling.ipynb'
       - 'recipes/RAG/RAG_with_Langchain.ipynb'
       - 'recipes/Entity-Extraction/entity_extraction.ipynb'
       - 'recipes/Granite_Guardian/HAP.ipynb'
@@ -17,6 +18,7 @@ on:
       - main
       - pm-143
     paths:
+      - 'recipes/Function-Calling/Function_Calling.ipynb'
       - '.github/workflows/vanilla_workflow.yaml'
       - 'recipes/RAG/RAG_with_Langchain.ipynb'
       - 'recipes/Entity-Extraction/entity_extraction.ipynb'
