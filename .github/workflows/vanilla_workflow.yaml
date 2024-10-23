@@ -7,24 +7,24 @@ on:
       - pm-143
     paths:
       - 'recipes/Function-Calling/Function_Calling.ipynb'
-      - 'recipes/Summarize/Summarize.ipynb'
       - 'recipes/RAG/RAG_with_Langchain.ipynb'
-      - 'recipes/AI-Agents/Agentic_RAG.ipynb'
       - 'recipes/Entity-Extraction/entity_extraction.ipynb'
       - 'recipes/Granite_Guardian/HAP.ipynb'
       - '.github/notebook_lists/vanilla_notebooks.txt'
+      - 'recipes/AI-Agents/Agentic_RAG.ipynb'
+      - 'recipes/Summarize/Summarize.ipynb'
   pull_request:
     branches:
       - main
       - pm-143
     paths:
-      - 'recipes/Function-Calling/Function_Calling.ipynb'
       - '.github/workflows/vanilla_workflow.yaml'
-      - 'recipes/Summarize/Summarize.ipynb'
+      - 'recipes/Function-Calling/Function_Calling.ipynb'
       - 'recipes/RAG/RAG_with_Langchain.ipynb'
-      - 'recipes/AI-Agents/Agentic_RAG.ipynb'
       - 'recipes/Entity-Extraction/entity_extraction.ipynb'
       - 'recipes/Granite_Guardian/HAP.ipynb'
+      - 'recipes/AI-Agents/Agentic_RAG.ipynb'
+      - 'recipes/Summarize/Summarize.ipynb'
 
 jobs:
   test-vanilla-notebooks:
@@ -47,6 +47,9 @@ jobs:
       - name: Run Vanilla Notebooks
         env:
           REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+          WATSONX_APIKEY: ${{ secrets.WATSONX_APIKEY }}
+          WATSONX_PROJECT_ID: ${{ secrets.WATSONX_PROJECT_ID }}
+          WATSONX_URL: ${{ secrets.WATSONX_URL }}
         run: |
           notebooks=$(cat .github/notebook_lists/vanilla_notebooks.txt | tr '\n' ' ')  
           for notebook in $notebooks; do  
