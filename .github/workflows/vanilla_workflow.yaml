@@ -46,6 +46,7 @@ jobs:
 
       - name: Run Vanilla Notebooks
         env:
+          GRANITE_TESTING: ${{ vars.GRANITE_TESTING }}
           REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
           WATSONX_APIKEY: ${{ secrets.WATSONX_APIKEY }}
           WATSONX_PROJECT_ID: ${{ secrets.WATSONX_PROJECT_ID }}
