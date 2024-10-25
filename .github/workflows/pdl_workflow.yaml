@@ -1,4 +1,4 @@
-name: CI for Vanilla Notebooks
+name: CI for PDL Notebooks
 
 on:
   push:
@@ -15,7 +15,7 @@ on:
       - '.github/workflows/pdl_workflow.yaml'
 
 jobs:
-  test-vanilla-notebooks:
+  test-pdl-notebooks:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,7 +32,7 @@ jobs:
           python -m pip install --upgrade pip    
           pip install nbconvert nbclient ipykernel
 
-      - name: Run Vanilla Notebooks
+      - name: Run PDL Notebooks
         env:
           GRANITE_TESTING: ${{ vars.GRANITE_TESTING }}
           REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
