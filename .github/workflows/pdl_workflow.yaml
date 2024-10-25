@@ -4,27 +4,15 @@ on:
   push:
     branches:
       - main
-      - pm-143
     paths:
-      - 'recipes/Function-Calling/Function_Calling.ipynb'
-      - 'recipes/RAG/RAG_with_Langchain.ipynb'
-      - 'recipes/Entity-Extraction/entity_extraction.ipynb'
-      - 'recipes/Granite_Guardian/HAP.ipynb'
-      - '.github/notebook_lists/vanilla_notebooks.txt'
-      - 'recipes/AI-Agents/Agentic_RAG.ipynb'
-      - 'recipes/Summarize/Summarize.ipynb'
+      - 'recipes/PDL/Prompt_Declaration_Language_python.ipynb'
+      - '.github/notebook_lists/pdl_notebooks.txt'
   pull_request:
     branches:
       - main
-      - pm-143
     paths:
-      - 'recipes/Function-Calling/Function_Calling.ipynb'
-      - '.github/workflows/vanilla_workflow.yaml'
-      - 'recipes/RAG/RAG_with_Langchain.ipynb'
-      - 'recipes/Entity-Extraction/entity_extraction.ipynb'
-      - 'recipes/Granite_Guardian/HAP.ipynb'
-      - 'recipes/AI-Agents/Agentic_RAG.ipynb'
-      - 'recipes/Summarize/Summarize.ipynb'
+      - 'recipes/PDL/Prompt_Declaration_Language_python.ipynb'
+      - '.github/workflows/pdl_workflow.yaml'
 
 jobs:
   test-vanilla-notebooks:
@@ -37,7 +25,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.11"
 
       - name: Install dependencies
         run: |
