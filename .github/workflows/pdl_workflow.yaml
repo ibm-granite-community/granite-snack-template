@@ -40,7 +40,6 @@ jobs:
           WATSONX_PROJECT_ID: ${{ secrets.WATSONX_PROJECT_ID }}
           WATSONX_URL: ${{ secrets.WATSONX_URL }}
         run: |
-          set -e
           notebooks=$(cat .github/notebook_lists/pdl_notebooks.txt | grep -v '^#' | tr '\n' ' ')  
           for notebook in $notebooks; do  
             echo "Executing $notebook"  
