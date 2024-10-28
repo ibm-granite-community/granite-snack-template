@@ -53,7 +53,16 @@ jobs:
           WATSONX_URL: ${{ secrets.WATSONX_URL }}
         run: |
           notebooks=$(cat .github/notebook_lists/vanilla_notebooks.txt | grep -v '^#' | tr '\n' ' ')  
-          for notebook in $notebooks; do  
-            echo "Executing $notebook"  
-            jupyter nbconvert --to notebook --execute --inplace $notebook  
+          for notebook in $notebooks; do 
+            echo "Building virtual env"  
+            rm -rf .venv
+            python -m venv .venv
+            source .venv/bin/activate
+            pip install ipykernel
+            echo "Installing kernel $kernel"
+            kernel=$(basename $notebook)
+            python -m ipykernel install --user --name $kernel 
+            echo "Executing $notebook"
+            jupyter nbconvert --to notebook --execute --ExecutePreprocessor.kernel_name $kernel --inplace $notebook
+            deactivate
           done
