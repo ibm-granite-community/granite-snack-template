@@ -13,6 +13,7 @@ on:
       - ".github/notebook_lists/vanilla_notebooks.txt"
       - "recipes/AI-Agents/Agentic_RAG.ipynb"
       - "recipes/Summarize/Summarize.ipynb"
+      - 'recipes/Function-Calling/Function_Calling.ipynb'
   pull_request:
     branches:
       - main
@@ -25,6 +26,7 @@ on:
       - "recipes/Granite_Guardian/Granite_Guardian_Quick_Start.ipynb"
       - "recipes/AI-Agents/Agentic_RAG.ipynb"
       - "recipes/Summarize/Summarize.ipynb"
+      - 'recipes/Function-Calling/Function_Calling.ipynb'
 
 jobs:
   test-vanilla-notebooks:
@@ -52,8 +54,18 @@ jobs:
           WATSONX_PROJECT_ID: ${{ secrets.WATSONX_PROJECT_ID }}
           WATSONX_URL: ${{ secrets.WATSONX_URL }}
         run: |
-          notebooks=$(cat .github/notebook_lists/vanilla_notebooks.txt | tr '\n' ' ')  
-          for notebook in $notebooks; do  
-            echo "Executing $notebook"  
-            jupyter nbconvert --to notebook --execute --inplace $notebook  
+          set -e
+          notebooks=$(cat .github/notebook_lists/vanilla_notebooks.txt | grep -v '^#' | tr '\n' ' ')  
+          for notebook in $notebooks; do 
+            echo "Building virtual env"  
+            rm -rf .venv
+            python -m venv .venv
+            source .venv/bin/activate
+            pip install ipykernel
+            echo "Installing kernel $kernel"
+            kernel=$(basename $notebook)
+            python -m ipykernel install --user --name $kernel 
+            echo "Executing $notebook"
+            jupyter nbconvert --to notebook --execute --ExecutePreprocessor.kernel_name $kernel --inplace $notebook
+            deactivate
           done
