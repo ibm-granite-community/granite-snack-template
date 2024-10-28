@@ -55,5 +55,7 @@ jobs:
           notebooks=$(cat .github/notebook_lists/vanilla_notebooks.txt | grep -v '^#' | tr '\n' ' ')  
           for notebook in $notebooks; do 
             echo "Does the whole script fail on any error?"  
+            echo "notebook: $notebook"
             ls -al this-does-not-exist
+            echo "YOU SHOULD NOT SEE THIS MESSAGE!"
           done
