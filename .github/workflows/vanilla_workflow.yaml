@@ -52,18 +52,8 @@ jobs:
           WATSONX_PROJECT_ID: ${{ secrets.WATSONX_PROJECT_ID }}
           WATSONX_URL: ${{ secrets.WATSONX_URL }}
         run: |
-          set -e
           notebooks=$(cat .github/notebook_lists/vanilla_notebooks.txt | grep -v '^#' | tr '\n' ' ')  
           for notebook in $notebooks; do 
-            echo "Building virtual env"  
-            rm -rf .venv
-            python -m venv .venv
-            source .venv/bin/activate
-            pip install ipykernel
-            echo "Installing kernel $kernel"
-            kernel=$(basename $notebook)
-            python -m ipykernel install --user --name $kernel 
-            echo "Executing $notebook"
-            jupyter nbconvert --to notebook --execute --ExecutePreprocessor.kernel_name $kernel --inplace $notebook
-            deactivate
+            echo "Does the whole script fail on any error?"  
+            ls -al this-does-not-exist
           done
