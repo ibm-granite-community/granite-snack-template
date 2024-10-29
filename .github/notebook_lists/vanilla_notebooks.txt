@@ -5,3 +5,5 @@ recipes/RAG/RAG_with_Langchain.ipynb
 recipes/Entity-Extraction/entity_extraction.ipynb
 recipes/Granite_Guardian/HAP.ipynb
 recipes/Granite_Guardian/Granite_Guardian_Quick_Start.ipynb
+recipes/Granite_Guardian/Granite_Guardian_Detailed_Guide.ipynb
+recipes/Granite_Guardian/Granite_Guardian_Usage_Governance_Workflow.ipynb
