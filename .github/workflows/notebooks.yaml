@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: Apache-2.0
+
+name: Testing Notebooks
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/notebooks.yaml' # This workflow
+      - '.github/workflows/test_notebook.yaml' # Called workflow
+      - '.github/notebook_lists/*' # Notebook lists
+      - 'recipes/**/*.ipynb'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/notebooks.yaml' # This workflow
+      - '.github/workflows/test_notebook.yaml' # Called workflow
+      - '.github/notebook_lists/*' # Notebook lists
+      - 'recipes/**/*.ipynb'
+
+env:
+  LC_ALL: en_US.UTF-8
+
+defaults:
+  run:
+    shell: bash
+
+permissions:
+  contents: read
+
+jobs:
+  vanilla:
+    uses: ./.github/workflows/test_notebook.yaml
+    secrets: inherit
+    with:
+      notebook-lists: |
+        .github/notebook_lists/vanilla_notebooks.txt
+      python-versions: >-
+        3.10
+        3.11
+
+  pdl:
+    uses: ./.github/workflows/test_notebook.yaml
+    secrets: inherit
+    with:
+      notebook-lists: |
+        .github/notebook_lists/pdl_notebooks.txt
+      python-versions: >-
+        3.11

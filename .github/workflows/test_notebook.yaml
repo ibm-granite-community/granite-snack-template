@@ -1,0 +1,114 @@
+# SPDX-License-Identifier: Apache-2.0
+
+name: Test Notebook Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      notebook-lists:
+        description: 'Newline-separated paths of text files with newline-separated paths of notebooks to test'
+        required: false
+        type: string
+        default: ''
+      notebook:
+        description: 'Newline-separated paths of notebooks to test'
+        required: false
+        type: string
+        default: ''
+      runs-on:
+        description: 'Space-separated GitHub Action runner names to use'
+        required: false
+        type: string
+        default: >-
+          ubuntu-latest
+      python-versions:
+        description: 'Space-separated Python versions to use'
+        required: false
+        type: string
+        default: >-
+          3.11
+      pip-install:
+        description: 'Space-separated dependencies to pip install'
+        required: false
+        type: string
+        default: >-
+          nbconvert
+          nbclient
+          ipykernel
+      command:
+        description: 'Newline-separated commands to test notebook'
+        required: false
+        type: string
+        default: |
+          jupyter nbconvert --to notebook --execute --inplace {0}
+
+env:
+  LC_ALL: en_US.UTF-8
+
+defaults:
+  run:
+    shell: bash
+
+permissions:
+  contents: read
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      any_changed: ${{ steps.changed-files.outputs.any_changed }}
+      notebooks: ${{ steps.json.outputs.notebooks }}
+      runs_on: ${{ steps.json.outputs.runs_on }}
+      python_versions: ${{ steps.json.outputs.python_versions }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Find changed notebook files
+        id: changed-files
+        uses: tj-actions/changed-files@v45
+        with:
+          files_from_source_file: ${{ inputs.notebook-lists }}
+          files: ${{ inputs.notebook }}
+
+      - name: Convert inputs to JSON
+        id: json
+        run: |
+          jq -ncr '[$ARGS.positional[] | split("\\s"; null) | map(select(. != ""))] | flatten | tostring | ("notebooks=" + .)' --args "${{ steps.changed-files.outputs.all_changed_files }}" >> "$GITHUB_OUTPUT"
+          jq -ncr '[$ARGS.positional[] | split("\\s"; null) | map(select(. != ""))] | flatten | tostring | ("runs_on=" + .)' --args "${{ inputs.runs-on }}" >> "$GITHUB_OUTPUT"
+          jq -ncr '[$ARGS.positional[] | split("\\s"; null) | map(select(. != ""))] | flatten | tostring | ("python_versions=" + .)' --args "${{ inputs.python-versions }}" >> "$GITHUB_OUTPUT"
+
+  test:
+    needs:
+      - prepare
+    if: ${{ fromJSON(needs.prepare.outputs.any_changed) }}
+    strategy:
+      fail-fast: false
+      matrix:
+        notebook: ${{ fromJSON(needs.prepare.outputs.notebooks) }}
+        os: ${{ fromJSON(needs.prepare.outputs.runs_on) }}
+        python: ${{ fromJSON(needs.prepare.outputs.python_versions) }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python ${{ matrix.python }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ${{ inputs.pip-install }}
+
+      - name: Test ${{ matrix.notebook }}
+        run: |
+          ${{ format(inputs.command, matrix.notebook) }}
+        env:
+          GRANITE_TESTING: ${{ vars.GRANITE_TESTING }}
+          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+          WATSONX_APIKEY: ${{ secrets.WATSONX_APIKEY }}
+          WATSONX_PROJECT_ID: ${{ secrets.WATSONX_PROJECT_ID }}
+          WATSONX_URL: ${{ secrets.WATSONX_URL }}
