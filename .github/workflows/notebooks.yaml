@@ -3,6 +3,9 @@
 name: Testing Notebooks
 
 on:
+  schedule: # Test all notebooks daily
+  - cron: '0 10 * * *'
+  workflow_dispatch: # Test all notebooks on demand
   push:
     branches:
       - main

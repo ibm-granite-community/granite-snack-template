@@ -41,6 +41,11 @@ on:
         type: string
         default: |
           jupyter nbconvert --to notebook --execute --inplace {0}
+      all:
+        description: 'Whether to test all notebooks or just changed notebooks'
+        required: false
+        type: boolean
+        default: ${{ contains(fromJSON('["schedule","workflow_dispatch"]'), github.event_name) }}
 
 env:
   LC_ALL: en_US.UTF-8
@@ -56,7 +61,7 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     outputs:
-      any_changed: ${{ steps.changed-files.outputs.any_changed }}
+      test: ${{ fromJSON(inputs.all) || steps.changed-files.outputs.any_changed }}
       notebooks: ${{ steps.json.outputs.notebooks }}
       runs_on: ${{ steps.json.outputs.runs_on }}
       python_versions: ${{ steps.json.outputs.python_versions }}
@@ -64,7 +69,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Find all notebook files
+        if: ${{ fromJSON(inputs.all) }}
+        id: all-files
+        uses: tj-actions/glob@v22
+        with:
+          files-from-source-file: ${{ inputs.notebook-lists }}
+          files: ${{ inputs.notebook }}
+
       - name: Find changed notebook files
+        if: ${{ !fromJSON(inputs.all) }}
         id: changed-files
         uses: tj-actions/changed-files@v45
         with:
@@ -74,14 +88,14 @@ jobs:
       - name: Convert inputs to JSON
         id: json
         run: |
-          jq -ncr '[$ARGS.positional[] | split("\\s"; null) | map(select(. != ""))] | flatten | tostring | ("notebooks=" + .)' --args "${{ steps.changed-files.outputs.all_changed_files }}" >> "$GITHUB_OUTPUT"
+          jq -ncr '[$ARGS.positional[] | split("\\s"; null) | map(select(. != ""))] | flatten | tostring | ("notebooks=" + .)' --args "${{ fromJSON(inputs.all) && steps.all-files.outputs.paths || steps.changed-files.outputs.all_changed_files }}" >> "$GITHUB_OUTPUT"
           jq -ncr '[$ARGS.positional[] | split("\\s"; null) | map(select(. != ""))] | flatten | tostring | ("runs_on=" + .)' --args "${{ inputs.runs-on }}" >> "$GITHUB_OUTPUT"
           jq -ncr '[$ARGS.positional[] | split("\\s"; null) | map(select(. != ""))] | flatten | tostring | ("python_versions=" + .)' --args "${{ inputs.python-versions }}" >> "$GITHUB_OUTPUT"
 
   test:
     needs:
       - prepare
-    if: ${{ fromJSON(needs.prepare.outputs.any_changed) }}
+    if: ${{ fromJSON(needs.prepare.outputs.test) }}
     strategy:
       fail-fast: false
       matrix:
