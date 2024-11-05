@@ -20,7 +20,7 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" style="border-radius: 5px" height="21" alt="Open YouTube video"/>
    </a>
    <a href="https://www.ibm.com/think/tutorials/granite-function-calling">
-   <img src=carbon-for-ibm-dotcom.svg style="border-radius: 5px" height="23" alt="Open on IBM.com"/>
+   <img src="assets/carbon-for-ibm-dotcom.svg" style="border-radius: 5px" height="23" alt="Open on IBM.com"/>
    </a>
 1. [RAG](/recipes/RAG/RAG_with_Langchain.ipynb)
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/RAG/RAG_with_Langchain.ipynb">
@@ -34,7 +34,7 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" style="border-radius: 5px" height="21" alt="Open YouTube video"/>
    </a>
    <a href="https://www.ibm.com/think/tutorials/agentic-rag">
-   <img src=carbon-for-ibm-dotcom.svg style="border-radius: 5px" height="23" alt="Open on IBM.com"/>
+   <img src="assets/carbon-for-ibm-dotcom.svg" style="border-radius: 5px" height="23" alt="Open on IBM.com"/>
    </a>
 1. Prompt Declaration Language (PDL)
    1. [Notebook that uses the PDL Jupyter Extension](recipes/PDL/Prompt_Declaration_Language.ipynb) (Not compatible with Colab)
