@@ -16,7 +16,9 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Function-Calling/Function_Calling.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
-   [![YouTube](http://i.ytimg.com/vi/cjCYcTPryw8/hqdefault.jpg)](https://www.youtube.com/watch?v=cjCYcTPryw8)
+   <a target="_blank" href="https://www.youtube.com/watch?v=cjCYcTPryw8">
+   <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" style="border-radius: 5px" height="21" alt="Open YouTube video"/>
+   </a>
 1. [RAG](/recipes/RAG/RAG_with_Langchain.ipynb)
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/RAG/RAG_with_Langchain.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -26,7 +28,7 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
    <a target="_blank" href="https://www.youtube.com/watch?v=Y1PaM3edYoI">
-   <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Open YouTube video"/>
+   <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" style="border-radius: 5px" height="21" alt="Open YouTube video"/>
    </a>
 1. Prompt Declaration Language (PDL)
    1. [Notebook that uses the PDL Jupyter Extension](recipes/PDL/Prompt_Declaration_Language.ipynb) (Not compatible with Colab)
