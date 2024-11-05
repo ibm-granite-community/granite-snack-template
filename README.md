@@ -27,7 +27,7 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <a target="_blank" href="https://www.ibm.com/think/tutorials/agentic-rag"><img src="assets/carbon-for-ibm-dotcom.svg" height="23" alt="Open on IBM.com"/></a>
 1. Prompt Declaration Language (PDL)
    1. [Notebook that uses the PDL Jupyter Extension](recipes/PDL/Prompt_Declaration_Language.ipynb) (Not compatible with Colab)
-   1. [Notebook that uses the PDL Python API](recipes/PDL/Prompt_Declaration_Language_python.ipynb) 
+   1. [Notebook that uses the PDL Python API](recipes/PDL/Prompt_Declaration_Language_python.ipynb)
       <!-- <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/PDL/Prompt_Declaration_Language_python.ipynb">
       <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
       </a> --> (Not yet available in Colab, because the latter uses Python 3.10)
@@ -39,6 +39,12 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Granite_Guardian/Granite_Guardian_Quick_Start.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
+
+## Build Status
+
+<a href="https://github.com/ibm-granite-community/granite-snack-cookbook/actions/workflows/notebooks.yaml">
+  <img src="https://github.com/ibm-granite-community/granite-snack-cookbook/actions/workflows/notebooks.yaml/badge.svg" alt="Testing Notebooks">
+</a>
 
 ## Contributing
 
