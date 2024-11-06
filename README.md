@@ -10,21 +10,16 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    </a>
 1. [Entity Extraction](recipes/Entity-Extraction/entity_extraction.ipynb)
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Entity-Extraction/entity_extraction.ipynb">
-   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-   </a>
+   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 1. [Function Calling](recipes/Function-Calling/Function_Calling.ipynb)
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Function-Calling/Function_Calling.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-   <a target="_blank" href="https://www.youtube.com/watch?v=cjCYcTPryw8"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" style="border-radius: 5px; overflow: hidden;" height="21" alt="Open YouTube video"/></a>
-   <a target="_blank" href="https://www.ibm.com/think/tutorials/granite-function-calling"><img src="assets/carbon-for-ibm-dotcom.svg" height="23" alt="Open on IBM.com"/></a>
 1. [RAG](/recipes/RAG/RAG_with_Langchain.ipynb)
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/RAG/RAG_with_Langchain.ipynb">
-   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-   </a>
+   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 1. [Agentic RAG](recipes/AI-Agents/Agentic_RAG.ipynb)
-   <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/AI-Agents/Agentic_RAG.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-   <a target="_blank" href="https://www.youtube.com/watch?v=Y1PaM3edYoI"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" style="border-radius: 5px; overflow: hidden;" height="21" alt="Open YouTube video"/></a>
-   <a target="_blank" href="https://www.ibm.com/think/tutorials/agentic-rag"><img src="assets/carbon-for-ibm-dotcom.svg" height="23" alt="Open on IBM.com"/></a>
+   <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/AI-Agents/Agentic_RAG.ipynb">
+   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 1. Prompt Declaration Language (PDL)
    1. [Notebook that uses the PDL Jupyter Extension](recipes/PDL/Prompt_Declaration_Language.ipynb) (Not compatible with Colab)
    1. [Notebook that uses the PDL Python API](recipes/PDL/Prompt_Declaration_Language_python.ipynb)
