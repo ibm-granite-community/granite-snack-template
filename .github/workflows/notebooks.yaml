@@ -5,13 +5,18 @@ name: Testing Notebooks
 on:
   schedule: # Test all notebooks daily
   - cron: '0 10 * * *'
-  workflow_dispatch: # Test all notebooks on demand
+  workflow_dispatch: # Test notebooks on demand
+    inputs:
+      pr:
+        description: 'Pull Request number or leave empty for all notebooks'
+        required: false
+        type: string
+        default: ''
   push:
     branches:
       - main
     paths:
       - '.github/workflows/notebooks.yaml' # This workflow
-      - '.github/workflows/test_notebook.yaml' # Called workflow
       - '.github/notebook_lists/*' # Notebook lists
       - 'recipes/**/*.ipynb'
   pull_request:
@@ -19,7 +24,6 @@ on:
       - main
     paths:
       - '.github/workflows/notebooks.yaml' # This workflow
-      - '.github/workflows/test_notebook.yaml' # Called workflow
       - '.github/notebook_lists/*' # Notebook lists
       - 'recipes/**/*.ipynb'
 
@@ -34,21 +38,100 @@ permissions:
   contents: read
 
 jobs:
+  test_workflow_ready:
+    # Don't run schedule target in forks
+    if: ${{ (github.event_name != 'schedule') || (github.repository_owner == 'ibm-granite-community') }}
+    permissions:
+      pull-requests: write
+      statuses: write
+    runs-on: ubuntu-latest
+    outputs:
+      ref: ${{ inputs.pr && format('refs/pull/{0}/merge',inputs.pr) || '' }}
+      all: ${{ contains(fromJSON('["schedule","workflow_dispatch"]'), github.event_name) && !inputs.pr }}
+      status_url: ${{ steps.pr.outputs.status_url }}
+      run_url: ${{ steps.pr.outputs.run_url }}
+    steps:
+      - name: Checkout
+        if: ${{ inputs.pr }}
+        id: checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.pr && format('refs/pull/{0}/head',inputs.pr) || '' }}
+
+      - name: Pull Request dispatch
+        if: ${{ inputs.pr }}
+        id: pr
+        run: |
+          echo "status_url=$STATUS_URL" >> "$GITHUB_OUTPUT"
+          echo "run_url=$RUN_URL" >> "$GITHUB_OUTPUT"
+          gh api -X POST "$STATUS_URL" -f "context=PR Test" -f "state=$STATUS_STATE" -f "description=$STATUS_DESCRIPTION" -f "target_url=$RUN_URL&pr=$PR"
+          gh pr comment "$PR" -b "$GITHUB_WORKFLOW workflow launched on this PR: [View run]($RUN_URL)"
+        env:
+          PR: ${{ inputs.pr }}
+          STATUS_URL: ${{ github.api_url }}/repos/${{ github.repository }}/statuses/${{ steps.checkout.outputs.commit }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          STATUS_STATE: pending
+          STATUS_DESCRIPTION: This check has started...
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   vanilla:
+    needs:
+      - test_workflow_ready
+    permissions:
+      contents: read
     uses: ibm-granite-community/utils/.github/workflows/test_notebook.yaml@main
-    secrets: inherit
+    secrets:
+      REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+      WATSONX_APIKEY: ${{ secrets.WATSONX_APIKEY }}
+      WATSONX_PROJECT_ID: ${{ secrets.WATSONX_PROJECT_ID }}
+      WATSONX_URL: ${{ secrets.WATSONX_URL }}
     with:
       notebook-lists: |
         .github/notebook_lists/vanilla_notebooks.txt
       python-versions: >-
         3.10
         3.11
+      ref: ${{ needs.test_workflow_ready.outputs.ref }}
+      all: ${{ fromJSON(needs.test_workflow_ready.outputs.all) }}
 
   pdl:
+    needs:
+      - test_workflow_ready
+    permissions:
+      contents: read
     uses: ibm-granite-community/utils/.github/workflows/test_notebook.yaml@main
-    secrets: inherit
+    secrets:
+      REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+      WATSONX_APIKEY: ${{ secrets.WATSONX_APIKEY }}
+      WATSONX_PROJECT_ID: ${{ secrets.WATSONX_PROJECT_ID }}
+      WATSONX_URL: ${{ secrets.WATSONX_URL }}
     with:
       notebook-lists: |
         .github/notebook_lists/pdl_notebooks.txt
       python-versions: >-
         3.11
+      ref: ${{ needs.test_workflow_ready.outputs.ref }}
+      all: ${{ fromJSON(needs.test_workflow_ready.outputs.all) }}
+
+  test_workflow_complete:
+    needs:
+      - test_workflow_ready
+      - vanilla
+      - pdl
+    permissions:
+      pull-requests: write
+      statuses: write
+    runs-on: ubuntu-latest
+    if: ${{ !cancelled() && (needs.test_workflow_ready.result == 'success') }}
+    steps:
+      - name: Pull Request dispatch
+        if: ${{ inputs.pr }}
+        run: |
+          gh api -X POST "$STATUS_URL" -f "context=PR Test" -f "state=$STATUS_STATE" -f "description=$STATUS_DESCRIPTION" -f "target_url=$RUN_URL&pr=$PR"
+        env:
+          PR: ${{ inputs.pr }}
+          STATUS_URL: ${{ needs.test_workflow_ready.outputs.status_url }}
+          RUN_URL: ${{ needs.test_workflow_ready.outputs.run_url }}
+          STATUS_STATE: ${{ (contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')) && 'failure' || 'success' }}
+          STATUS_DESCRIPTION: ${{ (contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')) && 'Failure' || 'Success' }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
