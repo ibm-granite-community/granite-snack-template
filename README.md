@@ -44,9 +44,7 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Load_LoRA_from_Huggingface/Load_LoRA_from_Huggingface.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
-1. [Travel planner Agent](recipes/AI-Agents/travel_planner_agent.ipynb)
-   <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/AI-Agents/travel_planner_agent.ipynb">
-
+   
 ## Build Status
 
 <a href="https://github.com/ibm-granite-community/granite-snack-cookbook/actions/workflows/notebooks.yaml">
