@@ -24,6 +24,10 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/AI-Agents/Agentic_RAG.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
+1. [Travel planner Agent](recipes/AI-Agents/travel_planner_agent.ipynb)
+   <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/AI-Agents/travel_planner_agent.ipynb">
+   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+   </a>
 1. Prompt Declaration Language (PDL)
    1. [Notebook that uses the PDL Jupyter Extension](recipes/PDL/Prompt_Declaration_Language.ipynb) (Not compatible with Colab)
    1. [Notebook that uses the PDL Python API](recipes/PDL/Prompt_Declaration_Language_python.ipynb)
@@ -40,10 +44,6 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    </a>
 1. [Loading a LoRA from Huggingface](recipes/Load_LoRA_from_Huggingface/Load_LoRA_From_Huggingface.ipynb)
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Load_LoRA_from_Huggingface/Load_LoRA_From_Huggingface.ipynb">
-   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-   </a>
-1. [Travel planner Agent](recipes/AI-Agents/travel_planner_agent.ipynb)
-   <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/AI-Agents/travel_planner_agent.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
    
