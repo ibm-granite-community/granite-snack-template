@@ -4,6 +4,8 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
 
 ## Recipes
 
+### Basic Capabilities
+
 1. [Document Summarization](/recipes/Summarize/Summarize.ipynb)
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Summarize/Summarize.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -16,6 +18,9 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Function-Calling/Function_Calling.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
+
+### Compound Systems
+
 1. [RAG](/recipes/RAG/RAG_with_Langchain.ipynb)
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/RAG/RAG_with_Langchain.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -24,12 +29,19 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/AI-Agents/Agentic_RAG.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
+1. [Travel planner Agent](recipes/AI-Agents/travel_planner_agent.ipynb)
+   <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/AI-Agents/travel_planner_agent.ipynb">
+   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+   </a>
 1. Prompt Declaration Language (PDL)
    1. [Notebook that uses the PDL Jupyter Extension](recipes/PDL/Prompt_Declaration_Language.ipynb) (Not compatible with Colab)
    1. [Notebook that uses the PDL Python API](recipes/PDL/Prompt_Declaration_Language_python.ipynb)
       <!-- <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/PDL/Prompt_Declaration_Language_python.ipynb">
       <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
       </a> --> (Not yet available in Colab, because the latter uses Python 3.10)
+
+### Tuning
+
 1. [Fine Tuning Granite](recipes/Fine_Tuning/Finetuning_Granite_Pirate_Style.ipynb)
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Fine_Tuning/Finetuning_Granite_Pirate_Style.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -38,6 +50,9 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Load_LoRA_from_Huggingface/Load_LoRA_From_Huggingface.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
+
+### Guardian
+
 1. [Granite Guardian 3.0](recipes/Granite_Guardian/Granite_Guardian_Quick_Start.ipynb)
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Granite_Guardian/Granite_Guardian_Quick_Start.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
