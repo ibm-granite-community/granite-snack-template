@@ -65,6 +65,11 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
 
+### Model Evaluation with Unitxt
+1. [Quick Start (TODO: point to main)](recipes/Evaluation/Unitxt_Quick_Start.ipynb)
+   <a target="_blank" href="https://colab.research.google.com/github//ibm-granite-community/granite-snack-cookbook/blob/bnayahu/unitxt-cookbook/recipes/Evaluation/Unitxt_Quick_Start.ipynb">
+   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+   </a>
 ### Guardian
 
 1. [Granite Guardian 3.0](recipes/Granite_Guardian/Granite_Guardian_Quick_Start.ipynb)
