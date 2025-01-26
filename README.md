@@ -70,7 +70,7 @@ The "Recipes" in the Granite Snack Cookbook showcase the essential capabilities 
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Evaluation/Unitxt_Quick_Start.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
-2. [Evaluate Few-Shot Strategies](recipes/Evaluation/Unitxt_Demo_Strategies.ipynb)
+2. [Evaluating Few-Shot Strategies](recipes/Evaluation/Unitxt_Demo_Strategies.ipynb)
    <a target="_blank" href="https://colab.research.google.com/github/ibm-granite-community/granite-snack-cookbook/blob/main/recipes/Evaluation/Unitxt_Demo_Strategies.ipynb">
    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
    </a>
